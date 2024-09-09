@@ -1,0 +1,400 @@
+/*
+**
+** Copyright 2024 Vincent Grovestine (vincent@grovestine.com) -- All rights reserved.
+**
+*/
+
+/**************************************************************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/mana-font@latest/css/mana.css");
+
+/**************************************************************************************************/
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #fff;
+  color: #111;
+  font-family: Lato, sans-serif;
+  font-size: 1rem;
+  line-height: 1.25em;
+  margin: 2em;
+  padding: 0;
+}
+
+@media print {
+  html {
+    font-size: 9.5pt;
+  }
+
+  body {
+    margin: 0;
+  }
+}
+
+/**************************************************************************************************/
+
+div#deckviewer {}
+
+header,
+aside,
+main,
+footer {
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+header {
+  border-bottom: 0.25rem solid #e5e5e5;
+}
+
+aside {
+  background-color: #e5e5e5;
+  border-radius: 0 0 2rem 2rem;
+
+  flex-basis: 20rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  order: 2;
+}
+
+main {
+  flex-basis: 40rem;
+  flex-grow: 1;
+  flex-shrink: 0;
+  order: 1;
+}
+
+footer {
+  border-top: 1px solid #e5e5e5;
+  font-size: 0.875em;
+}
+
+@media screen and (max-width: 1200px),
+print {
+  aside {
+    background-color: transparent;
+    border-radius: 0;
+    width: 100%;
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  main {
+    width: 100%;
+    flex-basis: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 2;
+  }
+}
+
+/**************************************************************************************************/
+
+section {
+  margin: 1em 0 3em 0;
+}
+
+nav {
+  margin: 1em 0;
+}
+
+a {
+  color: #159;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+}
+
+a:visited {
+  color: #048;
+}
+
+a:active,
+a:hover {
+  color: #900;
+}
+
+dt {
+  font-weight: bold;
+  margin: 0.625em 0 0 0;
+}
+
+dd {
+  font-weight: normal;
+  margin: 0.125em 0 0.625em 1em;
+}
+
+pre.dump {
+  font-family: monospace;
+  font-size: 0.75em;
+  word-wrap: break-word;
+}
+
+.secondary_info {
+  font-size: 0.875em;
+  color: #777;
+}
+
+.smaller {
+  font-size: 0.875em;
+}
+
+.invisible {
+  display: none;
+}
+
+/**************************************************************************************************/
+
+.flex_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 1em;
+}
+
+.pseudocolumn {
+  width: auto;
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 20em;
+}
+
+/**************************************************************************************************/
+
+section.deck_info {}
+
+section.deck_info .card {}
+
+section.deck_info .card img {
+  margin: 0 auto;
+  max-width: 488px;
+  max-height: 680px;
+  width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+}
+
+section.deck_info .card .quantity {
+  display: none;
+}
+
+section.deck_info dl.attributes {}
+
+section.deck_info dl.attributes ul {
+  margin: 0;
+  padding-left: 1em;
+}
+
+/**************************************************************************************************/
+
+section.deck_table table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0 2em 0;
+}
+
+section.deck_table table th,
+section.deck_table table td {
+  padding: 0.2em 0.5em;
+}
+
+section.deck_table table caption {
+  text-transform: uppercase;
+  text-align: left;
+  background-color: #555;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.125em 1.25em;
+}
+
+section.deck_table table thead {
+  background-color: #111;
+  color: #fff;
+}
+
+section.deck_table table thead th {
+  vertical-align: bottom;
+}
+
+section.deck_table table tbody {}
+
+section.deck_table table tbody tr:hover {
+  background-color: #fec;
+}
+
+section.deck_table table tbody td {
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+section.deck_table table th.part,
+section.deck_table table td.part {
+  display: none;
+}
+
+section.deck_table table td.name,
+section.deck_table table td.type,
+section.deck_table table td.rarity,
+section.deck_table table td.set,
+section.deck_table table td.part {
+  text-align: left;
+}
+
+section.deck_table table td.quantity,
+section.deck_table table td.colors,
+section.deck_table table td.cost,
+section.deck_table table td.cmc,
+section.deck_table table td.inkwell,
+section.deck_table table td.lore,
+section.deck_table table td.price {
+  text-align: center;
+}
+
+section.deck_table table td.colors,
+section.deck_table table td.cost {
+  white-space: nowrap;
+}
+
+/**************************************************************************************************/
+
+section.deck_images .flex_wrapper {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section.deck_images .card {
+  position: relative;
+  box-sizing: border-box;
+  flex-basis: 11%;
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-width: 12em;
+}
+
+section.deck_images .card.hidden {
+  content: "";
+  visibility: hidden;
+}
+
+section.deck_images .card.label p {
+  background-color: #ccc;
+  color: #fff;
+  font-size: 1.5em;
+  text-align: right;
+  padding: 2em 1em;
+  margin: 0;
+  border-radius: 2rem 0 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+section.deck_images .card img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5em;
+}
+
+section.deck_images .card .quantity {
+  font-weight: bold;
+  box-shadow: 0 0 0.125em #000;
+  z-index: 99;
+  position: absolute;
+  bottom: 0.25em;
+  left: 0;
+  margin: 0 0 -0.125em -0.125em;
+  display: block;
+  min-width: 2em;
+  height: 1.5em;
+  line-height: 1.5em;
+  text-align: center;
+  background-color: #fb5;
+  opacity: 0.95;
+}
+
+/**************************************************************************************************/
+
+section.deck_text {
+  font-size: 0.875em;
+  font-family: monospace;
+  white-space: pre;
+}
+
+/**************************************************************************************************/
+
+.color {
+  background-color: magenta;
+  color: #fff;
+  font-size: 0.8125em;
+  margin: 0 0.125em;
+  border-radius: 0.125em;
+  padding: 0.1875em 0.25em;
+}
+
+.color.amber {
+  background-color: goldenrod;
+}
+
+.color.amethyst {
+  background-color: purple;
+}
+
+.color.emerald {
+  background-color: green;
+}
+
+.color.ruby {
+  background-color: red;
+}
+
+.color.sapphire {
+  background-color: blue;
+}
+
+.color.steel {
+  background-color: grey;
+}
+
+/**************************************************************************************************/
+
+.ms {
+  background-color: #ccc;
+  font-size: 0.8125em;
+  margin: 0 0.125em;
+  border-radius: 1em;
+  padding: 0.1875em;
+}
+
+.ms-b {
+  background-color: #bbb;
+}
+
+.ms-r {
+  background-color: #e87;
+}
+
+.ms-g {
+  background-color: #ad9;
+}
+
+.ms-w {
+  background-color: #ffe;
+}
+
+.ms-u {
+  background-color: #9ce;
+}
+
+.ms-c {
+  background-color: #ccc;
+}

@@ -1,0 +1,7 @@
+!.gitkeep
+data/lorcast/*.json
+data/scryfall/*.json
+decks/[0-9]*
+my_decks/*
+doFlush
+doWebServer

@@ -182,6 +182,12 @@ section.deck_info .card img {
   border-radius: 0.5em;
 }
 
+@media print {
+  section.deck_info .card img {
+    max-width: 2in;
+  }
+}
+
 section.deck_info .card .quantity {
   display: none;
 }
